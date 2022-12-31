@@ -6,29 +6,54 @@ const UserSchema = new mongoose.Schema({
         require: true,
         min:3,
         max:20,
-        unique:true
+        unique:true,
     },
     email:{
         type:String,
         required:true,
-        min:6
+        min:6,
+    },
+    password: {
+        type: String,
+        required: true,
+        min: 6,
     },
     profilePicture:{
         type:String,
-        default:""
+        default:"",
     },
     coverPicture:{
         type:String,
-        default:""
+        default:"",
+    },
+    followers: {
+        type: Array,
+        default: [],
     },
     followings:{
         type:Array,
-        default:[]
+        default:[],
     },
     isAdmin:{
         type:Boolean,
         default:false,
-    }
+    },
+    desc:{
+        type:String,
+        max:50,
+    },
+    city:{
+        type:String,
+        max:50,
+    },
+    from:{
+        type:String,
+        max:50
+    },
+    relationship:{
+        type:Number,
+        enum:[1, 2, 3],
+    },
     
 },
 {timestamps:true}
